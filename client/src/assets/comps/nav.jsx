@@ -14,11 +14,9 @@ function nav() {
             Home
           </Button>
           <Button component={Link} to='/signup' sx={{ color: '#FFFFFF' }}>
-            Sign Up
-          </Button>
-          <Button component={Link} to='/login' sx={{ color: '#FFFFFF' }}>
             Login
           </Button>
+          
         </Toolbar>
       </Container>
     </AppBar>
