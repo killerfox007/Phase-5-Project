@@ -1,11 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import { Box, Button, Container } from '@mui/material';
-import { useCookies } from "react-cookie"
 
 function signUp() {
-  const [cookies, setCookie, removeCookie] = useCookies(['User'])
-
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => getUser(codeResponse),
@@ -24,9 +21,7 @@ function signUp() {
       body: JSON.stringify(userData)
     });
   }
-  function handleCookies(userInfo){
-    setCookie("User",userInfo, { path: "/"} )
-  }
+
   async function getUser(user) {
     const response = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
       headers: {
@@ -35,8 +30,7 @@ function signUp() {
       }
     })
     const data = await response.json()
-    handleCookies(data.given_name)
-    // postUser(data)
+    postUser(data)
     
   }
 
@@ -48,7 +42,7 @@ function signUp() {
         </Button>
         </Box>
     </Container>
-  );
+  )
 }
 
 export default signUp

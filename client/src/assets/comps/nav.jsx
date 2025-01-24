@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Button, Typography, Container } from '@mui/material'
 import { Link } from "react-router-dom"
 
 function nav() {
+
   return (
     <AppBar position="static" sx={{ backgroundColor: '#013220' }}>
         <Container maxWidth="lg">
@@ -16,6 +17,7 @@ function nav() {
           <Button component={Link} to='/signup' sx={{ color: '#FFFFFF' }}>
             Login
           </Button>
+          
           
         </Toolbar>
       </Container>
