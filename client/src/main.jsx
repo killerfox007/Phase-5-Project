@@ -5,7 +5,6 @@ import './index.css'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import store from './store';
 import { Provider } from 'react-redux'
-import { CookiesProvider } from 'react-cookie';
 
 createRoot(document.getElementById('root')).render(
   <GoogleOAuthProvider clientId="538604332355-9dua4smq0rrh8bi6kcjudnq7b1oau0b4.apps.googleusercontent.com">

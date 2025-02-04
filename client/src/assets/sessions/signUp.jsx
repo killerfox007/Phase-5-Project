@@ -14,12 +14,14 @@ function signUp() {
   async function postUser(userData) {
     const response = await fetch("http://127.0.0.1:5555/user/signup", {
       method: 'POST',
+      credentials: 'include',
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(userData)
+      body: JSON.stringify(userData),
     });
+    console.log("Response Headers:", [...response.headers.entries()]);
   }
 
   async function getUser(user) {
@@ -31,7 +33,6 @@ function signUp() {
     })
     const data = await response.json()
     postUser(data)
-    
   }
 
   return (
